@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f6fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 300px;
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #0a4aa8;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+}
+
+button {
+  width: 100%;
+  padding: 8px;
+  background: #0a4aa8;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+p {
+  text-align: center;
+  font-size: 14px;
+}
+
+span {
+  color: #0a4aa8;
+  cursor: pointer;
+}
