@@ -1,0 +1,1988 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thể Thao 24/7 - Tin tức thể thao cập nhật mới nhất</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF3B30;
+            --secondary: #00A8E8;
+            --dark: #1a1a1a;
+            --gray: #2a2a2a;
+            --light-gray: #f5f5f5;
+            --text: #333;
+            --border: #e0e0e0;
+            --success: #34C759;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text);
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        .top-bar {
+            background: var(--dark);
+            color: white;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .top-bar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .date-time {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #d32f2f 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .logo-search {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 48px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .search-box {
+            display: flex;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .search-box input {
+            border: none;
+            padding: 12px 20px;
+            font-size: 14px;
+            width: 300px;
+            outline: none;
+        }
+
+        .search-box button {
+            background: var(--dark);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: var(--gray);
+        }
+
+        nav {
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 3px;
+            background: white;
+            transition: transform 0.3s;
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        /* Breaking News Ticker */
+        .breaking-news {
+            background: var(--dark);
+            color: white;
+            padding: 12px 0;
+            overflow: hidden;
+        }
+
+        .breaking-news .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .breaking-label {
+            background: var(--primary);
+            padding: 5px 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-right: 20px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .breaking-content {
+            overflow: hidden;
+            flex: 1;
+        }
+
+        .breaking-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll-left 30s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* Live Scores Section */
+        .live-scores {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            color: white;
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        .live-scores h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .live-indicator {
+            width: 12px;
+            height: 12px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .scores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .match-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .match-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .match-league {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .match-teams {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 15px 0;
+        }
+
+        .match-score {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            color: #FFD700;
+        }
+
+        .match-time {
+            text-align: center;
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Featured News */
+        .featured-news {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .featured-article {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .featured-article:hover {
+            transform: scale(1.02);
+        }
+
+        .featured-article img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .featured-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            padding: 40px 30px 30px;
+            color: white;
+        }
+
+        .featured-category {
+            background: var(--primary);
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .featured-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px;
+            line-height: 1.3;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .featured-meta {
+            font-size: 14px;
+            opacity: 0.9;
+            display: flex;
+            gap: 15px;
+        }
+
+        /* News List */
+        .news-list {
+            display: grid;
+            gap: 20px;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 15px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .news-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .news-item img {
+            width: 150px;
+            height: 120px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .news-content {
+            padding: 15px;
+            flex: 1;
+        }
+
+        .news-category {
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .news-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            color: var(--dark);
+        }
+
+        .news-excerpt {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .news-meta {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            animation: fadeIn 1s ease-out;
+        }
+
+        .widget {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .widget-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+            font-weight: 700;
+        }
+
+        .trending-list {
+            list-style: none;
+        }
+
+        .trending-item {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .trending-item:hover {
+            transform: translateX(5px);
+        }
+
+        .trending-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .trending-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary);
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .trending-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .trending-time {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+        }
+
+        .tab-btn {
+            background: var(--light-gray);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+
+        .tab-btn:hover,
+        .tab-btn.active {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Video Section */
+        .video-section {
+            background: var(--dark);
+            padding: 50px 0;
+            color: white;
+            margin: 40px 0;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .video-card {
+            background: var(--gray);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255,59,48,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-info {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .video-meta {
+            font-size: 13px;
+            color: #999;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 50px 0;
+            color: white;
+            margin: 40px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 56px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .stat-label {
+            font-size: 18px;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--secondary) 0%, #0077b6 100%);
+            padding: 50px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .newsletter h2 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .newsletter-form button {
+            padding: 15px 40px;
+            background: var(--dark);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #999;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Share & Embed Modal */
+        .share-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(255, 59, 48, 0.4);
+            transition: all 0.3s;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .share-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(255, 59, 48, 0.6);
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideInUp 0.3s;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 30px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--primary);
+        }
+
+        .modal-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+
+        .share-section {
+            margin-bottom: 30px;
+        }
+
+        .share-section h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--text);
+        }
+
+        .social-share-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .social-share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .share-facebook { background: #1877F2; }
+        .share-twitter { background: #1DA1F2; }
+        .share-linkedin { background: #0A66C2; }
+        .share-whatsapp { background: #25D366; }
+        .share-telegram { background: #0088cc; }
+        .share-email { background: #EA4335; }
+
+        .embed-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid var(--border);
+        }
+
+        .embed-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .embed-tab {
+            padding: 10px 20px;
+            background: var(--light-gray);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .embed-tab.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .embed-content {
+            display: none;
+        }
+
+        .embed-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        .embed-preview {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 2px dashed var(--border);
+            text-align: center;
+            color: #666;
+        }
+
+        .embed-code {
+            position: relative;
+        }
+
+        .embed-code textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            resize: vertical;
+            min-height: 120px;
+            background: #f8f9fa;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #d32f2f;
+        }
+
+        .copy-btn.copied {
+            background: var(--success);
+        }
+
+        .size-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .size-option {
+            padding: 10px;
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .size-option:hover,
+        .size-option.active {
+            border-color: var(--primary);
+            background: rgba(255, 59, 48, 0.05);
+        }
+
+        .size-option-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+
+        .size-option-dims {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .custom-size {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .custom-size input {
+            padding: 10px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .qr-code-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .qr-code-image {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .download-qr {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .download-qr:hover {
+            background: #0077b6;
+            transform: translateY(-2px);
+        }
+
+        /* Article Embed Widget */
+        .article-share-widget {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .article-share-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .share-buttons-inline {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn-inline {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .share-btn-inline:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo-search {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            nav ul {
+                justify-content: flex-start;
+                overflow-x: auto;
+            }
+
+            .featured-article img {
+                height: 300px;
+            }
+
+            .featured-title {
+                font-size: 24px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .logo {
+                font-size: 36px;
+            }
+
+            .news-item {
+                flex-direction: column;
+            }
+
+            .news-item img {
+                width: 100%;
+                height: 200px;
+            }
+
+            .scores-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 25px;
+            }
+
+            .social-share-buttons {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .size-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="date-time">
+                <span id="current-date"></span>
+                <span id="current-time"></span>
+            </div>
+            <div class="social-links">
+                <a href="#" title="Facebook">Facebook</a>
+                <a href="#" title="Twitter">Twitter</a>
+                <a href="#" title="Instagram">Instagram</a>
+                <a href="#" title="Youtube">Youtube</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo-search">
+                <h1 class="logo">Thể Thao 24/7</h1>
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm kiếm tin tức, đội bóng, cầu thủ...">
+                    <button>Tìm kiếm</button>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Trang chủ</a></li>
+                    <li><a href="#bong-da">Bóng đá</a></li>
+                    <li><a href="#tennis">Tennis</a></li>
+                    <li><a href="#basketball">Bóng rổ</a></li>
+                    <li><a href="#formula1">Formula 1</a></li>
+                    <li><a href="#esports">Esports</a></li>
+                    <li><a href="#video">Video</a></li>
+                    <li><a href="#ranking">BXH</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breaking News -->
+    <div class="breaking-news">
+        <div class="container">
+            <span class="breaking-label">🔥 Tin nóng</span>
+            <div class="breaking-content">
+                <div class="breaking-text">
+                    Ronaldo lập cú đúp giúp Al Nassr thắng đậm 4-0 • Djokovic vào chung kết Australian Open • Liverpool dẫn đầu Premier League với 5 điểm • Verstappen ký hợp đồng mới với Red Bull đến 2028
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Scores -->
+    <div class="container">
+        <section class="live-scores">
+            <h2>
+                <span class="live-indicator"></span>
+                Tỷ số trực tiếp
+            </h2>
+            <div class="scores-grid">
+                <div class="match-card">
+                    <div class="match-league">Premier League</div>
+                    <div class="match-teams">
+                        <span>Man City</span>
+                        <span class="match-score">2 - 1</span>
+                        <span>Chelsea</span>
+                    </div>
+                    <div class="match-time">⚽ 67' - Đang diễn ra</div>
+                </div>
+                <div class="match-card">
+                    <div class="match-league">La Liga</div>
+                    <div class="match-teams">
+                        <span>Real Madrid</span>
+                        <span class="match-score">3 - 0</span>
+                        <span>Barcelona</span>
+                    </div>
+                    <div class="match-time">⚽ 82' - Đang diễn ra</div>
+                </div>
+                <div class="match-card">
+                    <div class="match-league">V.League</div>
+                    <div class="match-teams">
+                        <span>Hà Nội FC</span>
+                        <span class="match-score">1 - 1</span>
+                        <span>HAGL</span>
+                    </div>
+                    <div class="match-time">⚽ 45' - Hiệp một</div>
+                </div>
+                <div class="match-card">
+                    <div class="match-league">Serie A</div>
+                    <div class="match-teams">
+                        <span>Inter Milan</span>
+                        <span class="match-score">0 - 0</span>
+                        <span>Juventus</span>
+                    </div>
+                    <div class="match-time">🕐 19:00 - Sắp diễn ra</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Grid -->
+        <div class="content-grid">
+            <!-- Featured News -->
+            <div class="featured-news">
+                <article class="featured-article">
+                    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=1200&h=450&fit=crop&q=80" alt="Bóng đá">
+                    <div class="featured-overlay">
+                        <span class="featured-category">Bóng đá</span>
+                        <h2 class="featured-title">Ronaldo lập hat-trick lịch sử, phá kỷ lục 800 bàn thắng trong sự nghiệp</h2>
+                        <div class="featured-meta">
+                            <span>📅 2 giờ trước</span>
+                            <span>👁️ 15,234 lượt xem</span>
+                            <span>💬 89 bình luận</span>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="category-tabs">
+                    <button class="tab-btn active">Tất cả</button>
+                    <button class="tab-btn">Bóng đá</button>
+                    <button class="tab-btn">Tennis</button>
+                    <button class="tab-btn">Bóng rổ</button>
+                    <button class="tab-btn">F1</button>
+                    <button class="tab-btn">Esports</button>
+                </div>
+
+                <div class="news-list">
+                    <article class="news-item">
+                        <img src="https://images.unsplash.com/photo-1574068468668-a05a11f871da?w=300&h=240&fit=crop&q=80" alt="Bóng đá Việt Nam">
+                        <div class="news-content">
+                            <div class="news-category">Bóng đá Việt Nam</div>
+                            <h3 class="news-title">HLV Park Hang-seo tiết lộ bí quyết giúp Việt Nam vô địch AFF Cup</h3>
+                            <p class="news-excerpt">Trong buổi phỏng vấn mới nhất, HLV Park Hang-seo đã chia sẻ những kỷ niệm đáng nhớ và chiến lược đặc biệt...</p>
+                            <div class="news-meta">📅 3 giờ trước • ✍️ Nguyễn Văn A</div>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <img src="https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=300&h=240&fit=crop&q=80" alt="Premier League">
+                        <div class="news-content">
+                            <div class="news-category">Premier League</div>
+                            <h3 class="news-title">Man City thắng đậm 5-1, rút ngắn khoảng cách với Liverpool</h3>
+                            <p class="news-excerpt">Haaland lập hat-trick giúp Man City giành trọn 3 điểm trong trận derby thành Manchester đầy kịch tính...</p>
+                            <div class="news-meta">📅 4 giờ trước • ✍️ Trần Thị B</div>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <img src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=300&h=240&fit=crop&q=80" alt="Tennis">
+                        <div class="news-content">
+                            <div class="news-category">Tennis</div>
+                            <h3 class="news-title">Djokovic đối đầu Nadal tại bán kết Australian Open</h3>
+                            <p class="news-excerpt">Trận đấu kinh điển giữa hai huyền thoại tennis thế giới hứa hẹn mang đến những pha bóng đỉnh cao...</p>
+                            <div class="news-meta">📅 5 giờ trước • ✍️ Lê Văn C</div>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <img src="https://images.unsplash.com/photo-1519861531473-9200262188bf?w=300&h=240&fit=crop&q=80" alt="Bóng rổ NBA">
+                        <div class="news-content">
+                            <div class="news-category">Bóng rổ NBA</div>
+                            <h3 class="news-title">LeBron James đạt mốc 40,000 điểm trong sự nghiệp NBA</h3>
+                            <p class="news-excerpt">Ngôi sao của LA Lakers tiếp tục khẳng định đẳng cấp với cột mốc lịch sử mới trong màu áo tím vàng...</p>
+                            <div class="news-meta">📅 6 giờ trước • ✍️ Phạm Thị D</div>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=300&h=240&fit=crop&q=80" alt="Formula 1">
+                        <div class="news-content">
+                            <div class="news-category">Formula 1</div>
+                            <h3 class="news-title">Verstappen giành pole position tại chặng đua Monaco</h3>
+                            <p class="news-excerpt">Tay đua Red Bull Racing tiếp tục thống trị mùa giải với thành tích xuất sắc trên đường đua đầy thách thức...</p>
+                            <div class="news-meta">📅 7 giờ trước • ✍️ Hoàng Văn E</div>
+                        </div>
+                    </article>
+
+                    <article class="news-item">
+                        <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=300&h=240&fit=crop&q=80" alt="Esports">
+                        <div class="news-content">
+                            <div class="news-category">Esports</div>
+                            <h3 class="news-title">Team Flash vô địch VCS Mùa Xuân 2024 sau màn comeback ngoạn mục</h3>
+                            <p class="news-excerpt">Đội tuyển Liên Quân Mobile đã có màn trình diễn ấn tượng để giành chức vô địch giải đấu danh giá...</p>
+                            <div class="news-meta">📅 8 giờ trước • ✍️ Vũ Thị F</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Trending News -->
+                <div class="widget">
+                    <h3 class="widget-title">🔥 Tin thịnh hành</h3>
+                    <ul class="trending-list">
+                        <li class="trending-item">
+                            <span class="trending-number">1</span>
+                            <div class="trending-content">
+                                <h4>Messi xác nhận gia hạn hợp đồng với Inter Miami đến 2026</h4>
+                                <span class="trending-time">1 giờ trước</span>
+                            </div>
+                        </li>
+                        <li class="trending-item">
+                            <span class="trending-number">2</span>
+                            <div class="trending-content">
+                                <h4>Quang Hải ghi bàn đẳng cấp cho CAHN tại AFC Champions League</h4>
+                                <span class="trending-time">2 giờ trước</span>
+                            </div>
+                        </li>
+                        <li class="trending-item">
+                            <span class="trending-number">3</span>
+                            <div class="trending-content">
+                                <h4>Federer thông báo giải nghệ sau US Open 2024</h4>
+                                <span class="trending-time">3 giờ trước</span>
+                            </div>
+                        </li>
+                        <li class="trending-item">
+                            <span class="trending-number">4</span>
+                            <div class="trending-content">
+                                <h4>Curry phá kỷ lục 3 điểm của Ray Allen trong lịch sử NBA</h4>
+                                <span class="trending-time">4 giờ trước</span>
+                            </div>
+                        </li>
+                        <li class="trending-item">
+                            <span class="trending-number">5</span>
+                            <div class="trending-content">
+                                <h4>Hamilton chuyển đến Ferrari từ mùa giải F1 2025</h4>
+                                <span class="trending-time">5 giờ trước</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Top Rankings -->
+                <div class="widget">
+                    <h3 class="widget-title">🏆 Bảng xếp hạng</h3>
+                    <div style="margin-bottom: 20px;">
+                        <h4 style="margin-bottom: 10px; font-weight: 600;">Premier League</h4>
+                        <table style="width: 100%; font-size: 14px;">
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 8px 0;"><strong>1. Liverpool</strong></td>
+                                <td style="text-align: right;">75 điểm</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 8px 0;">2. Man City</td>
+                                <td style="text-align: right;">70 điểm</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 8px 0;">3. Arsenal</td>
+                                <td style="text-align: right;">68 điểm</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0;">4. Man United</td>
+                                <td style="text-align: right;">65 điểm</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h4 style="margin-bottom: 10px; font-weight: 600;">ATP Rankings</h4>
+                        <table style="width: 100%; font-size: 14px;">
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 8px 0;"><strong>1. Djokovic</strong></td>
+                                <td style="text-align: right;">9,875</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 8px 0;">2. Alcaraz</td>
+                                <td style="text-align: right;">8,855</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 8px 0;">3. Medvedev</td>
+                                <td style="text-align: right;">7,555</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 0;">4. Sinner</td>
+                                <td style="text-align: right;">6,490</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Ad Widget -->
+                <div class="widget" style="background: linear-gradient(135deg, #FF6B6B 0%, #FFE66D 100%); color: white; text-align: center;">
+                    <h3 style="font-size: 24px; margin-bottom: 15px;">🎯 Quảng cáo</h3>
+                    <p style="margin-bottom: 15px;">Đặt quảng cáo của bạn tại đây</p>
+                    <button style="background: white; color: var(--primary); border: none; padding: 12px 30px; border-radius: 25px; font-weight: bold; cursor: pointer;">Liên hệ ngay</button>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2 style="font-family: 'Oswald', sans-serif; font-size: 36px; margin-bottom: 30px; text-align: center;">📹 Video nổi bật</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=600&h=400&fit=crop&q=80" alt="Video bóng đá">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4 class="video-title">Top 10 bàn thắng đẹp nhất tuần - Premier League</h4>
+                        <div class="video-meta">👁️ 245K lượt xem • 2 giờ trước</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1522778526097-ce0a22ceb253?w=600&h=400&fit=crop&q=80" alt="Video highlights">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4 class="video-title">Highlights: Man City 5-1 Chelsea | Haaland hat-trick</h4>
+                        <div class="video-meta">👁️ 892K lượt xem • 4 giờ trước</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1552667466-07770ae110d0?w=600&h=400&fit=crop&q=80" alt="Video phỏng vấn">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4 class="video-title">Phỏng vấn độc quyền: Quang Hải sau trận thắng CAHN</h4>
+                        <div class="video-meta">👁️ 156K lượt xem • 5 giờ trước</div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <img src="https://images.unsplash.com/photo-1622547748225-3fc4abd2cca0?w=600&h=400&fit=crop&q=80" alt="Video tennis">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="video-info">
+                        <h4 class="video-title">Djokovic vs Nadal: Những pha bóng kinh điển nhất</h4>
+                        <div class="video-meta">👁️ 678K lượt xem • 1 ngày trước</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 style="font-family: 'Oswald', sans-serif; font-size: 36px; margin-bottom: 40px; text-align: center;">📊 Thống kê</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">5M+</div>
+                    <div class="stat-label">Độc giả</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Bài viết</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Biên tập viên</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Cập nhật</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <div class="container">
+        <section class="newsletter">
+            <h2>📬 Đăng ký nhận tin</h2>
+            <p>Nhận tin tức thể thao mới nhất vào email của bạn mỗi ngày</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Nhập địa chỉ email của bạn" required>
+                <button type="submit">Đăng ký ngay</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Share Button -->
+    <button class="share-btn" id="shareBtn" title="Chia sẻ & Nhúng">
+        📤
+    </button>
+
+    <!-- Share & Embed Modal -->
+    <div class="modal-overlay" id="shareModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h2 class="modal-title">📤 Chia sẻ & Nhúng nội dung</h2>
+
+            <!-- Social Share Section -->
+            <div class="share-section">
+                <h3>🔗 Chia sẻ trên mạng xã hội</h3>
+                <div class="social-share-buttons">
+                    <button class="social-share-btn share-facebook" onclick="shareToFacebook()">
+                        <span>📘</span> Facebook
+                    </button>
+                    <button class="social-share-btn share-twitter" onclick="shareToTwitter()">
+                        <span>🐦</span> Twitter
+                    </button>
+                    <button class="social-share-btn share-linkedin" onclick="shareToLinkedIn()">
+                        <span>💼</span> LinkedIn
+                    </button>
+                    <button class="social-share-btn share-whatsapp" onclick="shareToWhatsApp()">
+                        <span>💬</span> WhatsApp
+                    </button>
+                    <button class="social-share-btn share-telegram" onclick="shareToTelegram()">
+                        <span>✈️</span> Telegram
+                    </button>
+                    <button class="social-share-btn share-email" onclick="shareViaEmail()">
+                        <span>📧</span> Email
+                    </button>
+                </div>
+            </div>
+
+            <!-- Embed Section -->
+            <div class="embed-section">
+                <h3>🌐 Nhúng vào website của bạn</h3>
+                
+                <div class="embed-tabs">
+                    <button class="embed-tab active" onclick="switchEmbedTab('article')">Bài viết</button>
+                    <button class="embed-tab" onclick="switchEmbedTab('widget')">Widget</button>
+                    <button class="embed-tab" onclick="switchEmbedTab('scores')">Tỷ số trực tiếp</button>
+                </div>
+
+                <!-- Article Embed -->
+                <div class="embed-content active" id="embed-article">
+                    <div class="size-options">
+                        <div class="size-option active" onclick="selectSize('responsive')">
+                            <div class="size-option-title">Responsive</div>
+                            <div class="size-option-dims">100% width</div>
+                        </div>
+                        <div class="size-option" onclick="selectSize('large')">
+                            <div class="size-option-title">Large</div>
+                            <div class="size-option-dims">800x600</div>
+                        </div>
+                        <div class="size-option" onclick="selectSize('medium')">
+                            <div class="size-option-title">Medium</div>
+                            <div class="size-option-dims">600x400</div>
+                        </div>
+                    </div>
+
+                    <div class="custom-size">
+                        <input type="number" id="embedWidth" placeholder="Width (px)" value="800">
+                        <input type="number" id="embedHeight" placeholder="Height (px)" value="600">
+                    </div>
+
+                    <div class="embed-preview">
+                        <p>📰 Preview: Trang tin tức sẽ hiển thị ở đây</p>
+                        <small>Sử dụng iframe để nhúng nội dung vào website của bạn</small>
+                    </div>
+
+                    <div class="embed-code">
+                        <textarea id="articleEmbedCode" readonly>&lt;iframe src="https://thethao247.vn" width="800" height="600" frameborder="0" scrolling="auto" style="border: 1px solid #e0e0e0; border-radius: 8px;"&gt;&lt;/iframe&gt;</textarea>
+                        <button class="copy-btn" onclick="copyEmbedCode('articleEmbedCode')">📋 Copy</button>
+                    </div>
+                </div>
+
+                <!-- Widget Embed -->
+                <div class="embed-content" id="embed-widget">
+                    <div class="embed-preview">
+                        <p>🏆 Widget tin tức nổi bật</p>
+                        <small>Widget nhỏ gọn hiển thị 5 tin tức mới nhất</small>
+                    </div>
+
+                    <div class="embed-code">
+                        <textarea id="widgetEmbedCode" readonly>&lt;script src="https://thethao247.vn/widget.js"&gt;&lt;/script&gt;
+&lt;div class="thethao247-widget" data-type="latest" data-count="5"&gt;&lt;/div&gt;</textarea>
+                        <button class="copy-btn" onclick="copyEmbedCode('widgetEmbedCode')">📋 Copy</button>
+                    </div>
+                </div>
+
+                <!-- Live Scores Embed -->
+                <div class="embed-content" id="embed-scores">
+                    <div class="embed-preview">
+                        <p>⚽ Tỷ số trực tiếp</p>
+                        <small>Hiển thị tỷ số các trận đấu đang diễn ra</small>
+                    </div>
+
+                    <div class="embed-code">
+                        <textarea id="scoresEmbedCode" readonly>&lt;iframe src="https://thethao247.vn/live-scores" width="100%" height="400" frameborder="0" scrolling="no" style="border: none; border-radius: 8px;"&gt;&lt;/iframe&gt;</textarea>
+                        <button class="copy-btn" onclick="copyEmbedCode('scoresEmbedCode')">📋 Copy</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QR Code Section -->
+            <div class="embed-section">
+                <h3>📱 Mã QR Code</h3>
+                <div class="qr-code-section">
+                    <p style="margin-bottom: 15px; color: #666;">Quét mã QR để truy cập trang web trên mobile</p>
+                    <div class="qr-code-image">
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://thethao247.vn" alt="QR Code" style="width: 200px; height: 200px;">
+                    </div>
+                    <button class="download-qr" onclick="downloadQR()">⬇️ Tải xuống QR Code</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Share Widget (appears in articles) -->
+    <div class="container" style="margin: 40px auto;">
+        <div class="article-share-widget">
+            <div class="article-share-title">
+                <span>📢</span>
+                Chia sẻ bài viết này
+            </div>
+            <div class="share-buttons-inline">
+                <button class="share-btn-inline share-facebook" onclick="shareToFacebook()">
+                    📘 Facebook
+                </button>
+                <button class="share-btn-inline share-twitter" onclick="shareToTwitter()">
+                    🐦 Twitter
+                </button>
+                <button class="share-btn-inline share-linkedin" onclick="shareToLinkedIn()">
+                    💼 LinkedIn
+                </button>
+                <button class="share-btn-inline share-whatsapp" onclick="shareToWhatsApp()">
+                    💬 WhatsApp
+                </button>
+                <button class="copy-btn" onclick="copyPageURL()" style="background: var(--dark); color: white; padding: 8px 16px; border: none; border-radius: 6px; cursor: pointer; font-weight: 600;">
+                    🔗 Copy Link
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Về chúng tôi</h3>
+                    <p>Thể Thao 24/7 là trang tin tức thể thao hàng đầu Việt Nam, cập nhật tin tức nhanh nhất, chính xác nhất về các môn thể thao trong và ngoài nước.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Chuyên mục</h3>
+                    <ul>
+                        <li><a href="#">Bóng đá Việt Nam</a></li>
+                        <li><a href="#">Bóng đá quốc tế</a></li>
+                        <li><a href="#">Tennis</a></li>
+                        <li><a href="#">Bóng rổ</a></li>
+                        <li><a href="#">Formula 1</a></li>
+                        <li><a href="#">Esports</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên kết</h3>
+                    <ul>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Quảng cáo</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Kết nối với chúng tôi</h3>
+                    <ul>
+                        <li><a href="#">Facebook: @thethao247</a></li>
+                        <li><a href="#">Twitter: @thethao247</a></li>
+                        <li><a href="#">Instagram: @thethao247</a></li>
+                        <li><a href="#">Youtube: Thể Thao 24/7</a></li>
+                        <li><a href="#">Email: <span class="__cf_email__" data-cfemail="f2919d9c86939186b2869a97869a939dc0c6c5dc849c">[email&#160;protected]</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Thể Thao 24/7. All rights reserved. Made with ❤️ in Vietnam</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString('vi-VN', options);
+            document.getElementById('current-time').textContent = now.toLocaleTimeString('vi-VN');
+        }
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        // Tab functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Cảm ơn bạn đã đăng ký! Chúng tôi sẽ gửi tin tức mới nhất đến email của bạn.');
+            this.reset();
+        });
+
+        // Search functionality
+        document.querySelector('.search-box button').addEventListener('click', function() {
+            const searchInput = document.querySelector('.search-box input');
+            if (searchInput.value.trim()) {
+                alert('Tìm kiếm: ' + searchInput.value);
+            }
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+                
+                // Update active state
+                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Video play button
+        document.querySelectorAll('.video-card').forEach(card => {
+            card.addEventListener('click', function() {
+                alert('Video sẽ được phát. Tính năng này cần tích hợp với video player.');
+            });
+        });
+
+        // News item click
+        document.querySelectorAll('.news-item, .trending-item').forEach(item => {
+            item.addEventListener('click', function() {
+                alert('Đang chuyển đến trang chi tiết bài viết...');
+            });
+        });
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.news-item, .stat-item, .video-card').forEach(el => {
+            el.style.opacity = '0';
+          el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Share & Embed Modal Functions
+        const shareBtn = document.getElementById('shareBtn');
+        const shareModal = document.getElementById('shareModal');
+        const closeModal = document.getElementById('closeModal');
+
+        shareBtn.addEventListener('click', () => {
+            shareModal.classList.add('active');
+        });
+
+        closeModal.addEventListener('click', () => {
+            shareModal.classList.remove('active');
+        });
+
+        shareModal.addEventListener('click', (e) => {
+            if (e.target === shareModal) {
+                shareModal.classList.remove('active');
+            }
+        });
+
+        // Social Share Functions
+        function shareToFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareToTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Xem tin tức thể thao mới nhất tại Thể Thao 24/7');
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareToLinkedIn() {
+            const url = encodeURIComponent(window.location.href);
+            window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareToWhatsApp() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Xem tin tức thể thao mới nhất: ');
+            window.open(`https://wa.me/?text=${text}${url}`, '_blank');
+        }
+
+        function shareToTelegram() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Xem tin tức thể thao mới nhất');
+            window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
+        }
+
+        function shareViaEmail() {
+            const subject = encodeURIComponent('Tin tức thể thao từ Thể Thao 24/7');
+            const body = encodeURIComponent(`Xem tin tức thể thao mới nhất tại: ${window.location.href}`);
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        }
+
+        function copyPageURL() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                const btn = event.target;
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '✅ Đã copy!';
+                btn.style.background = '#34C759';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = 'var(--dark)';
+                }, 2000);
+            });
+        }
+
+        // Embed Tab Switching
+        function switchEmbedTab(tabName) {
+            document.querySelectorAll('.embed-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            document.querySelectorAll('.embed-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(`embed-${tabName}`).classList.add('active');
+        }
+
+        // Size Selection
+        let currentSize = 'responsive';
+        function selectSize(size) {
+            currentSize = size;
+            document.querySelectorAll('.size-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            event.target.closest('.size-option').classList.add('active');
+            updateEmbedCode();
+        }
+
+        function updateEmbedCode() {
+            const width = document.getElementById('embedWidth').value || '800';
+            const height = document.getElementById('embedHeight').value || '600';
+            
+            let widthValue, heightValue;
+            
+            if (currentSize === 'responsive') {
+                widthValue = '100%';
+                heightValue = '600';
+            } else if (currentSize === 'large') {
+                widthValue = '800';
+                heightValue = '600';
+            } else if (currentSize === 'medium') {
+                widthValue = '600';
+                heightValue = '400';
+            } else {
+                widthValue = width;
+                heightValue = height;
+            }
+
+            const embedCode = `<iframe src="https://thethao247.vn" width="${widthValue}" height="${heightValue}" frameborder="0" scrolling="auto" style="border: 1px solid #e0e0e0; border-radius: 8px;"></iframe>`;
+            document.getElementById('articleEmbedCode').value = embedCode;
+        }
+
+        document.getElementById('embedWidth').addEventListener('input', updateEmbedCode);
+        document.getElementById('embedHeight').addEventListener('input', updateEmbedCode);
+
+        // Copy Embed Code
+        function copyEmbedCode(textareaId) {
+            const textarea = document.getElementById(textareaId);
+            textarea.select();
+            document.execCommand('copy');
+            
+            const btn = event.target;
+            btn.textContent = '✅ Đã copy!';
+            btn.classList.add('copied');
+            
+            setTimeout(() => {
+                btn.textContent = '📋 Copy';
+                btn.classList.remove('copied');
+            }, 2000);
+        }
+
+        // Download QR Code
+        function downloadQR() {
+            const qrImage = document.querySelector('.qr-code-image img');
+            const link = document.createElement('a');
+            link.href = qrImage.src;
+            link.download = 'thethao247-qr-code.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            alert('QR Code đã được tải xuống!');
+        }
+    </script>
+</body>
+</html>
