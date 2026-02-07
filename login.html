@@ -6,31 +6,23 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="container">
-  <h2 id="title">Login</h2>
-  <!-- FORM LOGIN -->
-  <form id="loginForm">
-    <input type="text" id="loginUser" placeholder="Tên đăng nhập" required>
-    <input type="password" id="loginPass" placeholder="Mật khẩu" required>
-    <button type="submit">Đăng nhập</button>
-    <p>Bạn chưa có tài khoản?
-      <span onclick="showSignup()">Đăng ký</span>
-    </p>
-  </form>
-
-  <!-- FORM SIGN UP -->
-  <form id="signupForm" style="display:none;">
-    <input type="text" id="signupUser" placeholder="Tên đăng nhập" required>
-    <input type="password" id="signupPass" placeholder="Mật khẩu" required>
-    <input type="password" id="signupRePass" placeholder="Nhập lại mật khẩu" required>
-    <button type="submit">Đăng ký</button>
-    <p>Đã có tài khoản?
-      <span onclick="showLogin()">Login</span>
-    </p>
-  </form>
-</div>
-<script src="script.js"></script>
+<div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeLoginModal()">&times;</span>
+            <h2 class="modal-title">Đăng Nhập</h2>
+            <form onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" required placeholder="Nhập email của bạn">
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Mật khẩu:</label>
+                    <input type="password" id="loginPassword" required placeholder="Nhập mật khẩu">
+                </div>
+                <button type="submit" class="btn-submit">Đăng Nhập</button>
+                <div class="form-footer">
+                    Chưa có tài khoản? <a href="#" onclick="switchToRegister()">Đăng ký ngay</a>
+                </div>
 </body>
 </html>
 
